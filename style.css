@@ -1,0 +1,57 @@
+body {
+    background-color: lightblue;
+    font-size: 18px;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+#content {
+    border-style: dotted;
+    border-color: lightpink;
+    border-width: 6px;
+    margin: auto;
+    background-color: white;
+    border-radius: 5px;
+    width: 300px;
+    height: 550px;
+}
+
+#newTodo {
+    padding: 4px;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#myHeader {
+    margin-left: 35px;
+}
+
+#poxy {
+    float: right;
+}
+
+#save {
+    background-color: lightpink;
+    border-radius: 3px;
+    padding: 5px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+#tasks {
+    list-style-type: circle;
+    font-size: 22px;
+}
+
+.close {
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    font-size: 22px;
+    font-style: italic;
+    color: hotpink;
+}

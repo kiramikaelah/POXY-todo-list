@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>POXY</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="content">
+        <div id="myHeader"> <img src="poxy.jpg" id="poxy" alt="logo">
+            <h2>POXY Pockethelper</h2>
+            <input type="text" id="newTodo" placeholder="Write something...">
+            <br>
+            <br>
+            <button id="save">Add a task</button>
+        </div>
+        <ul id="tasks"></ul>
+        <script>
+            let todos = JSON.parse(localStorage.getItem("todos")) || [];
+
+            function showTodoList(thingsToShow) {
+                let newTodos = [];
+                $("#tasks").empty();
+                for (let i = 0; i < thingsToShow.length; i++) {
+                    newTodos.push(thingsToShow[i]);
+                    $("#tasks").append("<li>" + thingsToShow[i] + " <button class='close'>x</button>" + "</li>");
+                };
+                $(".close").on("click", function () {
+                    $(this).parent().remove();
+                    if (newTodos.indexOf(this.previousSibling.data.trim()) !== -1) {
+                        newTodos.splice(newTodos.indexOf(this.previousSibling.data.trim()), 1)
+                    }
+                    todos = [];
+                    localStorage.setItem("todos", JSON.stringify(newTodos))
+                });
+            };
+            $("#save").click(function () {
+                let newTask = $("#newTodo").val();
+                if (newTask === '') {
+                    alert("Write something!");
+                }
+                else {
+                    todos.push(newTask);
+                    $("#newTodo").val("");
+                    showTodoList(todos);
+                    localStorage.setItem("todos", JSON.stringify(todos));
+                };
+            });
+            showTodoList(todos);
+        </script>
+    </div>
+</body>
+
+</html>
