@@ -36,7 +36,7 @@
                     $(this).parent().remove();
                     if (newTodos.indexOf(this.previousSibling.data.trim()) !== -1) {
                         newTodos.splice(newTodos.indexOf(this.previousSibling.data.trim()), 1)
-                    }
+                    };
                     todos = [];
                     localStorage.setItem("todos", JSON.stringify(newTodos))
                 });
@@ -44,7 +44,7 @@
             $("#save").click(function () {
                 let newTask = $("#newTodo").val();
                 if (newTask === '') {
-                    alert("Write something!");
+                    alert("Write something! ;)");
                 }
                 else {
                     todos.push(newTask);
